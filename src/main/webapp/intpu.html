@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+function goHahaha(){
+	
+	let iiInput = document.getElementById("ii"); //id가 ii인 것
+//	let iiInput = document.getElementByClass("ii"); class가 ii인 것
+//	let iiInput = document.getElementByTagName("input") // 특정 태그명
+	
+	let iiInputVal = iiInput.value; //입력한 값이 나오게
+	alert(iiInputVal);
+	
+	location.href = "ㅋㅋㅋ?ii="+iiInputVal;
+	
+}
+
+
+</script>
+</head>
+<body>
+<!--
+버튼을 더블클릭하면 ㅋㅋㅋ?ii=xxx fh 겟 방식요청
+<form> : 입력받아서 요청할때 필수는 아님.
+<form> : 입력받아서 요청할때 상당히 편함.
+
+주소 직접 입력방식 	-  	get방식요청
+<a>				-	get방식요청
+<form>+<button>	-	get/post 방식요청
+javascript		-	get방식요청
+
+ -->
+<input id="ii">
+<button ondblclick="goHahaha();">확인</button>
+</body>
+</html>

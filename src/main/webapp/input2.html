@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function check(){
+	let idInput=document.ff.id; // document.form이름.input이름;
+	let pwInput=document.ff.pw;
+	let pwCInput=document.ff.pwconfirm;
+	let footInput=document.ff.footsize;
+	
+	//필수 검사
+	if (!idInput.value){
+		alert("님 iD외 안씀?");
+		idInput.focus(); //커서 갖다놓기
+		return false;
+	}else if (idInput.value.length < 5 || idInput.value.length >11){
+		alert("ID 는 5~ 10글자");
+		idInput.focus();
+		idInput.value = ""; //썼던거 지워주기
+		return false;
+	}
+	
+	
+	
+	
+	if(!pwInput.value){
+		alert("님 PW 누락");
+		pwInput.focus();
+		return false;
+	}else if (pwInput.value.length < 5 || pwInput.value.length > 11){
+		alert("PW는 5~10 글자");
+		pwInput.value="";
+		pwInput.focus();
+		return false;
+	}
+	
+	
+	
+	if(pwCInput.value != pwInput.value){
+		alert("비번이 달라여");
+		pwCInput.value="";
+		pwCInput.focus();
+		return false;
+	}
+	
+	
+	
+	
+	let numExist=false; //숫자 있는지 체크용
+	let num="369"; //이중에 하나만 있어라
+	for (let i = 0; i < num.length; i++) {
+		if(pwInput.value.indexOF(num[i])!=-1){//들어있으면
+			numExist = true;
+			break;
+		}	
+	}
+	let letterExist = false;
+	let letter = "hk";
+	for (var i = 0; i < letter.length; i++) {
+		if(pwInput.value.indexOF(letter[i]) != -1){
+			letterExist = true;
+			break;
+		}
+	}
+	
+	alert(numExist);
+	alert(letterExist);
+	
+	if(!numExist || !letterExist){
+		alert(numExist);
+		alert(letterExist);
+		alert("있어야 할게 없어요");
+		return false;
+	}
+	
+	
+	
+	//발싸이즈 
+	if(isNaN(footInput.value)){ //isNan : is not a number
+		alert("숫자만 입력하세요");
+		footInput.value="";
+		footInput.focus();	
+		return false;
+		
+	}
+	
+	return true;
+
+	
+}
+//let s = "오늘은 월요일인데 너무 졸려요";
+
+//alert(s.length);	//글자수
+//alert(s[5]);		//6번째 위치에 글자
+//alert(s.indexOF("졸")); //"졸"은 몇번째 위치에 있을까
+//alert(s.indexOF("악")); // 악이라는 값이 없어서 -1 을 리턴
+//alert(s.indexOF("매우") != -1); //매우 가 포함되어 있는가.
+// indexOF :  있으면 그위치를 리턴, 없으면 -1 을 리턴.
+
+</script>
+
+</head>
+<body>
+<form action="ㅎㅎ" name="ff" onsubmit="return check();">
+ID <input name="id"  autofocus="autofocus"> <p>
+PW <input name="pw" type="password"> <p>
+PW Check <input type="password" name="pwconfirm"> <p>
+Foot Size <input name="footsize"> <p>
+<button>버튼</button>
+</form>
+<!-- 
+ID / PW / PW확인 / 발싸이즈 / 버튼
+ -->
+</body>
+</html>
